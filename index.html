@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
 
   <!-- LocalBusiness Schema — update ALL fields below -->
   <script type="application/ld+json">
@@ -131,444 +132,6 @@
   }
   </script>
 
-  <style>
-    /* ── CSS Variables: change these 2 colors to rebrand any site ── */
-    :root {
-      --brand:    #374151;
-      --brand-dk: #1F2937;
-      --dark:     #2D3748;
-      --text:     #2D3748;
-      --light-bg: #F9FAFB;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text);
-    }
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: inherit; text-decoration: none; }
-
-    /* ── Utility ── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background .2s, transform .1s;
-      border: none;
-      line-height: 1.3;
-    }
-    .btn:active { transform: scale(.98); }
-    .btn-primary  { background: var(--brand); color: #fff; }
-    .btn-primary:hover  { background: var(--brand-dk); }
-    .btn-outline  { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.7); }
-    .btn-outline:hover  { background: rgba(255,255,255,.1); border-color: #fff; }
-    .btn-white    { background: #fff; color: var(--brand); }
-    .btn-white:hover    { background: #f0f0f0; }
-    .section      { padding: 72px 0; }
-    .text-center  { text-align: center; }
-    .section-title {
-      font-size: clamp(1.65rem, 3vw, 2.2rem);
-      font-weight: 900;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-    .section-sub {
-      font-size: 1.05rem;
-      color: #718096;
-      margin-bottom: 48px;
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ── Sticky Header ── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--dark);
-      box-shadow: 0 2px 16px rgba(0,0,0,.4);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 62px;
-    }
-    .logo { font-size: 1.3rem; font-weight: 900; color: #fff; letter-spacing: -.3px; }
-    .logo span { color: #9CA3AF; }
-    .header-right { display: flex; align-items: center; gap: 16px; }
-    .header-phone { font-weight: 700; font-size: 1rem; color: #fff; }
-    .header-phone a { color: #fff; }
-    .site-header .btn-primary { background: #fff; color: var(--dark); }
-    .site-header .btn-primary:hover { background: #E5E7EB; }
-    @media (max-width: 520px) {
-      .header-phone { display: none; }
-      .logo { font-size: .72rem; white-space: normal; line-height: 1.3; max-width: 58%; }
-      .site-header .btn-primary { padding: 8px 12px; font-size: .8rem; }
-      .header-inner { height: 60px; }
-    }
-    .menu-wrap { position: relative; }
-    .menu-btn { background: none; border: 1.5px solid rgba(255,255,255,.35); border-radius: 6px; color: #fff; padding: 7px 13px; font-size: .88rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: border-color .2s; }
-    .menu-btn:hover { border-color: #fff; }
-    .menu-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #1F2937; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; min-width: 180px; padding: 8px 0; box-shadow: 0 8px 24px rgba(0,0,0,.4); z-index: 300; }
-    .menu-dropdown.open { display: block; }
-    .menu-dropdown a { display: block; padding: 11px 20px; color: #E5E7EB; font-size: .92rem; font-weight: 600; text-decoration: none; transition: background .15s, color .15s; }
-    .menu-dropdown a:hover { background: rgba(255,255,255,.08); color: #fff; }
-
-    /* ── Hero ── */
-    .hero {
-      background: #ffffff;
-      color: var(--dark);
-      padding: 80px 0 72px;
-      border-bottom: 1px solid #E5E7EB;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 52px;
-      align-items: start;
-    }
-    @media (max-width: 860px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-form-card { max-width: 520px; margin: 0 auto; }
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #F9FAFB;
-      border: 1px solid #E5E7EB;
-      color: #374151;
-      padding: 6px 14px;
-      border-radius: 100px;
-      font-size: .82rem;
-      font-weight: 700;
-      margin-bottom: 22px;
-      letter-spacing: .3px;
-    }
-    .hero h1 {
-      font-size: clamp(2.1rem, 4.5vw, 3.1rem);
-      font-weight: 900;
-      line-height: 1.13;
-      margin-bottom: 18px;
-    }
-    .hero h1 em { font-style: normal; color: var(--brand); }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: #718096;
-      margin-bottom: 32px;
-      max-width: 500px;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-    .trust-row { display: flex; gap: 18px; flex-wrap: wrap; }
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: .88rem;
-      color: #718096;
-    }
-    .check { color: #22c55e; font-size: 1rem; }
-    .hero .btn-outline { color: var(--dark); border-color: #E5E7EB; }
-    .hero .btn-outline:hover { background: #F9FAFB; border-color: var(--dark); }
-
-    /* Hero Form Card */
-    .hero-form-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 36px 30px;
-      box-shadow: 0 4px 24px rgba(0,0,0,.08);
-      border: 1px solid #E5E7EB;
-    }
-    .form-title { font-size: 1.25rem; font-weight: 800; color: var(--dark); margin-bottom: 4px; }
-    .form-sub   { font-size: .88rem; color: #777; margin-bottom: 22px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: .82rem; font-weight: 600; color: #444; margin-bottom: 5px; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      font-family: inherit;
-      font-size: .93rem;
-      color: var(--text);
-      transition: border-color .2s;
-      outline: none;
-      background: #fff;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--brand); }
-    .form-group textarea { resize: vertical; min-height: 80px; }
-    .form-submit {
-      width: 100%;
-      padding: 15px;
-      font-size: 1rem;
-      font-weight: 700;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background .2s;
-      margin-top: 6px;
-      font-family: inherit;
-    }
-    .form-submit:hover { background: var(--brand-dk); }
-    .form-privacy { text-align: center; font-size: .76rem; color: #999; margin-top: 9px; }
-    .form-success { display: none; text-align: center; padding: 20px 0; }
-    .form-success .check-big { font-size: 3rem; margin-bottom: 14px; }
-    .form-success h3 { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-    .form-success p { font-size: .92rem; color: #718096; }
-
-    /* ── Stats Bar ── */
-    .stats-bar { background: var(--brand); padding: 26px 0; }
-    .stats-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-    .stat-item { text-align: center; color: #fff; }
-    .stat-num  { font-size: 1.9rem; font-weight: 900; display: block; line-height: 1.1; }
-    .stat-label{ font-size: .82rem; opacity: .88; letter-spacing: .3px; }
-    .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,.25); }
-    @media (max-width: 600px) { .stat-divider { display: none; } }
-
-    /* ── Services ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-      margin-top: 48px;
-    }
-    .service-card {
-      border: 1.5px solid #E5E7EB;
-      border-radius: 12px;
-      padding: 28px 22px;
-      transition: box-shadow .25s, transform .25s;
-      background: #fff;
-    }
-    .service-card:hover {
-      box-shadow: 0 10px 36px rgba(0,0,0,.09);
-      transform: translateY(-4px);
-    }
-    .service-icon { font-size: 2.2rem; margin-bottom: 14px; }
-    .service-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .service-card p  { font-size: .9rem; color: #718096; line-height: 1.65; }
-
-    /* ── Why Us ── */
-    .why-section { background: var(--light-bg); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 32px;
-      margin-top: 48px;
-    }
-    .why-item { text-align: center; }
-    .why-icon {
-      width: 66px; height: 66px;
-      background: var(--brand);
-      color: #fff;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 1.55rem;
-      font-weight: 900;
-    }
-    .why-item h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .why-item p  { font-size: .88rem; color: #718096; line-height: 1.65; }
-
-    /* ── How It Works ── */
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px;
-      margin-top: 48px;
-    }
-    .process-step {
-      background: #fff;
-      border: 1.5px solid #E5E7EB;
-      border-radius: 12px;
-      padding: 30px 22px;
-      text-align: center;
-    }
-    .step-num {
-      width: 50px; height: 50px;
-      background: var(--brand);
-      color: #fff;
-      font-weight: 900; font-size: 1.25rem;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .process-step h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
-    .process-step p  { font-size: .88rem; color: #718096; line-height: 1.65; }
-
-    /* ── Testimonials ── */
-    .testimonials-section { background: var(--dark); }
-    .testimonials-section .section-title { color: #fff; }
-    .testimonials-section .section-sub   { color: #999; }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
-      margin-top: 48px;
-    }
-    .review-card {
-      background: rgba(255,255,255,.055);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 12px;
-      padding: 28px 22px;
-    }
-    .stars { color: #fbbf24; font-size: 1rem; margin-bottom: 14px; letter-spacing: 2px; }
-    .review-text {
-      font-size: .92rem;
-      color: #bbb;
-      margin-bottom: 20px;
-      line-height: 1.75;
-    }
-    .reviewer { display: flex; align-items: center; gap: 12px; }
-    .reviewer-avatar {
-      width: 42px; height: 42px;
-      background: var(--brand);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; color: #fff; font-size: .88rem;
-      flex-shrink: 0;
-    }
-    .reviewer-name     { font-weight: 600; font-size: .88rem; color: #fff; }
-    .reviewer-location { font-size: .78rem; color: #777; margin-top: 2px; }
-
-    /* ── Service Areas ── */
-    .areas-section { background: var(--light-bg); }
-    .areas-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-      gap: 10px;
-      margin-top: 40px;
-    }
-    .area-pill {
-      background: #fff;
-      border: 1.5px solid #E5E7EB;
-      border-radius: 8px;
-      padding: 12px 14px;
-      text-align: center;
-      font-size: .88rem;
-      font-weight: 600;
-      color: var(--dark);
-      transition: border-color .2s, color .2s;
-      display: block;
-    }
-    .area-pill:hover { border-color: var(--brand); color: var(--brand); }
-    .area-pill.current { background: var(--brand); color: #fff; border-color: var(--brand); }
-
-    /* ── FAQ ── */
-    .faq-list { margin-top: 48px; max-width: 800px; margin-left: auto; margin-right: auto; }
-    .faq-item {
-      border: 1.5px solid #E5E7EB;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      overflow: hidden;
-      background: #fff;
-    }
-    .faq-question {
-      width: 100%; background: transparent; border: none;
-      padding: 20px 22px;
-      text-align: left;
-      font-family: inherit; font-size: .98rem; font-weight: 600;
-      color: var(--dark);
-      cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
-    .faq-question:hover { background: #fafafa; }
-    .faq-chevron {
-      flex-shrink: 0; width: 20px; height: 20px;
-      transition: transform .25s;
-      color: var(--brand);
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-    .faq-item.open .faq-answer { max-height: 500px; }
-    .faq-answer-inner {
-      padding: 0 22px 20px;
-      font-size: .92rem; color: #718096; line-height: 1.75;
-    }
-
-    /* ── CTA Banner ── */
-    .cta-banner {
-      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
-      padding: 68px 0;
-      text-align: center;
-      color: #fff;
-    }
-    .cta-banner h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
-      font-weight: 900;
-      margin-bottom: 14px;
-    }
-    .cta-banner p {
-      font-size: 1.08rem;
-      opacity: .92;
-      margin-bottom: 34px;
-      max-width: 540px;
-      margin-left: auto; margin-right: auto;
-    }
-    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    /* ── Footer ── */
-    .site-footer { background: var(--dark); color: #888; padding: 52px 0 24px; }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 40px;
-    }
-    @media (max-width: 680px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
-    .footer-brand { font-size: 1.2rem; font-weight: 900; color: #fff; margin-bottom: 14px; }
-    .footer-brand span { color: #9CA3AF; }
-    .footer-nap { font-size: .88rem; line-height: 2.1; }
-    .footer-nap a { color: #9CA3AF; }
-    .footer-col h4 { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: 14px; }
-    .footer-links { list-style: none; }
-    .footer-links li { margin-bottom: 9px; font-size: .87rem; color: #718096; }
-    .footer-links a { font-size: .87rem; color: #718096; transition: color .2s; }
-    .footer-links a:hover { color: #9CA3AF; }
-    .footer-hours { font-size: .87rem; line-height: 2.1; }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding-top: 22px;
-      text-align: center;
-      font-size: .8rem;
-      color: #444;
-    }
-
-    /* ── Responsive polish ── */
-    @media (max-width: 768px) {
-      .hero { padding: 52px 0 44px; }
-      .section { padding: 52px 0; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .btn { text-align: center; }
-      .cta-actions { flex-direction: column; align-items: center; }
-    }
-  </style>
 </head>
 <body>
 
@@ -587,6 +150,7 @@
             <a href="/">Home</a>
             <a href="#services">Services</a>
             <a href="#areas">Service Areas</a>
+            <a href="/blog/">Blog</a>
             <a href="#quote">Get a Quote</a>
           </div>
         </div>
@@ -814,21 +378,21 @@
       </p>
       <div class="areas-grid">
         <a href="/" class="area-pill current">Oklahoma City</a>
-        <span class="area-pill">Edmond</span>
-        <span class="area-pill">Norman</span>
-        <span class="area-pill">Moore</span>
-        <span class="area-pill">Yukon</span>
-        <span class="area-pill">Midwest City</span>
-        <span class="area-pill">Del City</span>
-        <span class="area-pill">Bethany</span>
-        <span class="area-pill">The Village</span>
-        <span class="area-pill">Piedmont</span>
-        <span class="area-pill">Mustang</span>
-        <span class="area-pill">Choctaw</span>
-        <span class="area-pill">Nichols Hills</span>
-        <span class="area-pill">Newcastle</span>
-        <span class="area-pill">Blanchard</span>
-        <span class="area-pill">Guthrie</span>
+        <a href="edmond.html" class="area-pill">Edmond</a>
+        <a href="norman.html" class="area-pill">Norman</a>
+        <a href="moore.html" class="area-pill">Moore</a>
+        <a href="yukon.html" class="area-pill">Yukon</a>
+        <a href="midwest-city.html" class="area-pill">Midwest City</a>
+        <a href="del-city.html" class="area-pill">Del City</a>
+        <a href="bethany.html" class="area-pill">Bethany</a>
+        <a href="the-village.html" class="area-pill">The Village</a>
+        <a href="piedmont.html" class="area-pill">Piedmont</a>
+        <a href="mustang.html" class="area-pill">Mustang</a>
+        <a href="choctaw.html" class="area-pill">Choctaw</a>
+        <a href="nichols-hills.html" class="area-pill">Nichols Hills</a>
+        <a href="newcastle.html" class="area-pill">Newcastle</a>
+        <a href="blanchard.html" class="area-pill">Blanchard</a>
+        <a href="guthrie.html" class="area-pill">Guthrie</a>
       </div>
     </div>
   </section>
@@ -963,21 +527,28 @@
           <h4>Service Areas</h4>
           <ul class="footer-links">
             <li><a href="/">Oklahoma City</a></li>
-            <li>Edmond</li>
-            <li>Norman</li>
-            <li>Moore</li>
-            <li>Yukon</li>
-            <li>Midwest City</li>
-            <li>Del City</li>
-            <li>Bethany</li>
-            <li>The Village</li>
-            <li>Piedmont</li>
-            <li>Mustang</li>
-            <li>Choctaw</li>
-            <li>Nichols Hills</li>
-            <li>Newcastle</li>
-            <li>Blanchard</li>
-            <li>Guthrie</li>
+            <li><a href="edmond.html">Edmond</a></li>
+            <li><a href="norman.html">Norman</a></li>
+            <li><a href="moore.html">Moore</a></li>
+            <li><a href="yukon.html">Yukon</a></li>
+            <li><a href="midwest-city.html">Midwest City</a></li>
+            <li><a href="del-city.html">Del City</a></li>
+            <li><a href="bethany.html">Bethany</a></li>
+            <li><a href="the-village.html">The Village</a></li>
+            <li><a href="piedmont.html">Piedmont</a></li>
+            <li><a href="mustang.html">Mustang</a></li>
+            <li><a href="choctaw.html">Choctaw</a></li>
+            <li><a href="nichols-hills.html">Nichols Hills</a></li>
+            <li><a href="newcastle.html">Newcastle</a></li>
+            <li><a href="blanchard.html">Blanchard</a></li>
+            <li><a href="guthrie.html">Guthrie</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/blog/">Blog</a></li>
           </ul>
         </div>
 
