@@ -99,8 +99,10 @@ a { color: inherit; text-decoration: none; }
   background-image:
     linear-gradient(180deg, rgba(19, 25, 35, 0.72), rgba(19, 25, 35, 0.84)),
     url('hero.jpg');
-  background-size: cover;
-  background-position: center;
+  /* Gradient stretched to the exact box (100% 100%) so no sub-pixel gap
+     exposes the untinted photo at the bottom edge; photo stays 'cover'. */
+  background-size: 100% 100%, cover;
+  background-position: center, center;
   background-repeat: no-repeat;
   color: #fff;
 }
